@@ -20,16 +20,19 @@ Auth::routes();
 Route::group(['middleware' => 'auth'],function(){
 Route::get('/AdminPanel', 'AdminPanelController@index')->name('AdminPanel');
 Route::get('/MoviePosters', 'MoviePostersController@index')->name('MoviePosters');
-Route::get('/CustomizeWeb', 'CustomizeWebController@index')->name('CustomizeWeb');
+
 });
 
 Route::get('/index', 'indexController@index')->name('index');
 
+// Login
 Route::post('loginprocess',[
-'uses'=> 'AdminPanelController@loginprocess',
+'uses'=> 'MyLoginController@loginprocess',
 'as' => 'loginprocess'
 ]);
-Route::get('/logout', 'AdminPanelController@logout')->name('logout');
+Route::get('/logout', 'MyLoginController@logout')->name('logout');
+Route::get('auth/google', 'Auth\SMController@redirectToProvider')->name('SMlogin');
+Route::get('auth/google/callback', 'Auth\SMController@handleProviderCallback');
 
 // AdminPanel
 Route::post('adinsert',[
@@ -55,3 +58,5 @@ Route::post('logoupdate',[
 'as' => 'logoupdate'
 ]);
 Route::get('/Logo', 'CustomizeWebController@logoshow')->name('Logo');
+
+Route::get('/CustomizeWeb', 'CustomizeWebController@index')->name('CustomizeWeb');

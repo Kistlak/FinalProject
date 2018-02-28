@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
+
 use Illuminate\Http\Request;
 use App\User;
 use Validator;
@@ -15,31 +15,6 @@ class AdminPanelController extends Controller
       $data = User::all();
       //$data = login::orderBy('created_at', 'desc')->get();
       return view('AdminPanel', ['data' => $data]);
-    }
-
-public function loginprocess(Request $request)
-{
-     //dd($request->all());
- 
-          if(Auth::attempt([
-'email' => $request->email,
-'password' => $request->password
-]))
-{
-$user = User::where('email', $request->email)->first();
-
-return redirect('/AdminPanel');
-}
-else
-{
-return redirect('/login');
-}
-}
-
-public function logout(Request $request)
-    {
-     $request->session()->flush();
-     return redirect('/login');
     }
  
 public function adinsert(Request $request)

@@ -34,5 +34,11 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    
+    'google' => [
+    'client_id' => '126690931629-cql15dddd1hmteunqrmqa70vej63afqg.apps.googleusercontent.com',
+    'client_secret' => 'KvpZatBzI1-VBkP1rrzON6oo',
+    'redirect' => 'http://localhost/FinalProject/public/CustomizeWeb',
+],
 
 ];

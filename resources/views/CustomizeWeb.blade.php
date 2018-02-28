@@ -89,7 +89,6 @@
 
                 </div>
 
-
 </div> <!-- End Of Right The Col Class -->
 
 </div> <!-- End Of The Row Class -->
