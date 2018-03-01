@@ -39,6 +39,12 @@ return [
     'client_id' => '126690931629-cql15dddd1hmteunqrmqa70vej63afqg.apps.googleusercontent.com',
     'client_secret' => 'KvpZatBzI1-VBkP1rrzON6oo',
     'redirect' => 'http://localhost/FinalProject/public/CustomizeWeb',
-],
+    ],
+    
+    'facebook' => [
+    'client_id' => '1595301260586796',
+    'client_secret' => '7fd7c800e6db52c9e31375e900877b8f',
+    'redirect' => 'http://localhost/FinalProject/public/CustomizeWeb',
+    ],
 
 ];

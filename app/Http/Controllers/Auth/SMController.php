@@ -28,4 +28,22 @@ class SMController extends Controller
         dd($user);
         // $user->token;
     }
+    
+    public function redirectToProviderFB()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    /**
+     * Obtain the user information from Google.
+     *
+     * @return Response
+     */
+    public function handleProviderCallbackFB()
+    {
+        $user = Socialite::driver('facebook')->user();
+        dd($user);
+        // $user->token;
+    }
+    
 }

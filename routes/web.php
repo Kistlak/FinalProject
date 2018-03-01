@@ -31,8 +31,10 @@ Route::post('loginprocess',[
 'as' => 'loginprocess'
 ]);
 Route::get('/logout', 'MyLoginController@logout')->name('logout');
-Route::get('auth/google', 'Auth\SMController@redirectToProvider')->name('SMlogin');
+Route::get('auth/google', 'Auth\SMController@redirectToProvider')->name('SMLoginGoogle');
 Route::get('auth/google/callback', 'Auth\SMController@handleProviderCallback');
+Route::get('auth/facebook', 'Auth\SMController@redirectToProviderFB')->name('SMLoginFB');
+Route::get('auth/facebook/callback', 'Auth\SMController@handleProviderCallbackFB');
 
 // AdminPanel
 Route::post('adinsert',[
