@@ -26,6 +26,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <!--<link rel="stylesheet" type="text/css" href="css/mystyle.css">-->
     
+    <script type="text/javascript" src="js\jquery-3.2.1.js"></script>
+    
 <title>
 @include('title')
 </title>
@@ -67,8 +69,6 @@
 }
 
 </style>
-
-<script type="text/javascript" src="js\jquery-3.2.1.js"></script>
 
 @include('BackToTop')
 
@@ -123,9 +123,6 @@ Amazing Cinema is owned and managed by NTKT Films & Theaters Private Limited. It
 <!-- Footer -->
 @include('footer')
 <!-- End Of The Footer -->
-	
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
 
 <!-- Scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

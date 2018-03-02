@@ -60,5 +60,7 @@ Route::post('logoupdate',[
 'as' => 'logoupdate'
 ]);
 Route::get('/Logo', 'CustomizeWebController@logoshow')->name('Logo');
-
 Route::get('/CustomizeWeb', 'CustomizeWebController@index')->name('CustomizeWeb');
+
+// Seats
+Route::get('/Seats', 'SeatsController@index')->name('Seats');

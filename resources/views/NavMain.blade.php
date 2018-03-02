@@ -15,7 +15,7 @@
   margin-top: 0;
   border-bottom: 3px solid yellow;
   border-top: 3px solid yellow;
-  width:1359px;
+  width:auto;
 }
 
 .nav
