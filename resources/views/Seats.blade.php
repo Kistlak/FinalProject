@@ -6,18 +6,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-    
-    <!-- Styles -->
-    <link href="{{ asset('jss/bootstrap.css') }}" rel="stylesheet">
-    <link href="{{ asset('jss/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('jss/bootstrap-theme.css') }}" rel="stylesheet">
-    <link href="{{ asset('jss/bootstrap-theme.min.css') }}" rel="stylesheet">  
-    
-    <!-- Scripts -->
-    <script src="{{ asset('jss/bootstrap.js') }}"></script>
-    <script src="{{ asset('jss/bootstrap,mini.js') }}"></script>
-    <script src="{{ asset('jss/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
@@ -89,6 +79,12 @@
 	  color:#353c47;
 	  }
 
+    .dt
+    {
+        margin-left: 400px;
+        margin-right: 400px;   
+    }
+          
     </style>				
 
 @include('BackToTop')
@@ -106,10 +102,35 @@
 <div class="col-md-12 col-sm-12 hero-feature"> <!-- Start Of The Col Class -->
     
     <center> 
-        
-    <form id="form1">
 
-      <h2 style="font-size:1.2em;font-family: Times New Roman;"> Choose seats by clicking the corresponding seat in the layout below:</h2>
+    <form class="form-horizontal" id="form1" method="POST" action="{{ route('seatsinsert') }}" enctype="multipart/form-data">    
+    
+    {{ csrf_field() }}    
+        
+        <div class="dt"> <br>
+           
+    <h4> <span id="success_message" class="text-success"></span> </h4>
+    
+    <div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">Select Date :</label>
+    <div class="col-10">
+    <input class="form-control" type="date" name="date" placeholder="mm-dd-yyyy" id="example-date-input">
+    </div>
+    </div>
+        
+     <div class="form-group">
+    <label for="exampleSelect1">Select Time :</label>
+    <select name="st" class="form-control" id="exampleSelect1">
+      <option>10.30 am</option>
+      <option>1.30 pm</option>
+      <option>4.30 pm</option>
+      <option>7.30 pm</option>
+    </select>
+    </div>  
+ 
+        </div>
+            
+      <h2 style="font-size:1.2em;font-family: Times New Roman;"> Choose seats by clicking below seats :</h2>
        
       <div id="holder"> 
 	<ul id="place">
@@ -127,10 +148,11 @@
         </ul>        
          </div>
       
-      <input type="button" class="btn btn-primary" id="btnShowNew" value="Show Selected Seats"> <br><br>
-      
-    </form>
-        
+      <input type="submit" class="btn btn-primary" id="btnShowNew" value="Continue"> <br><br>
+
+       <span id="availability"></span>
+    <br />   
+                  
     </center>
     
     <script type="text/javascript">
@@ -166,13 +188,9 @@
                 $('#place').html(str.join(''));
             };
 
-            //case I: Show from starting
-            //init();
-
             //Case II: If already booked
             var bookedSeats = [5, 10, 25, 63];
             init(bookedSeats);
-
 
             $('.' + settings.seatCss).click(function () {
 			if ($(this).hasClass(settings.selectedSeatCss)){
@@ -183,18 +201,63 @@
 				}
             });
 
-            $('#btnShowNew').click(function () {
-                var str = [], item;
+            $('#btnShowNew').click(function (e) {
+                e.preventDefault();
+
+                var items = [];
                 $.each($('#place li.' + settings.selectingSeatCss + ' a'), function (index, value) {
-                    item = $(this).attr('title');                   
-                    str.push(item);                   
+                    items.push($(this).attr('title'));
                 });
-                alert(str.join(','));
-            })
-        });
+
+                    console.log(items);
+                   // $(location).attr('href', 'Seats');
+
+                   $.ajax({
+                   url:'{{ route('seatprocess') }}',
+                   type:"POST",
+                   data:{ 
+                   _token: "{{ csrf_token() }}", 
+                   items: JSON.stringify(items), 
+                   date: $('input[name=date]').val(), 
+                   st: $('select[name=st]').val()},
+                   success:function(data)
+                   {
+                    if(data !== '0')
+                    {
+                     $('#availability').html('<span class="text-danger">Seats not available</span>');
+                     $('#register').attr("disabled", true);
+                    }
+                    else
+                    {
+                     //$('#availability').html('<span class="text-success">Seats Available</span>');
+                     
+                    $.ajax({ 
+                    type: "post", 
+                    url: "{{ route('seatsinsert') }}", 
+                    data: { 
+                    _token: "{{ csrf_token() }}", 
+                    items: JSON.stringify(items), 
+                    date: $('input[name=date]').val(), 
+                    st: $('select[name=st]').val()}, 
+                    success: function(data){ 
+                    $("form").trigger("reset"); 
+                    $('#success_message').fadeIn().html("Text"); 
+                    } 
+                    });
+                     
+                    $('#register').attr("disabled", false);
+                    }
+                   }
+                  });
+  
+                }); //btnShowNew
+
+         }); //Final 
     
     </script>
     
+    </form>
+        
 </div> <!-- End Of The Col Class -->
     
 </div> <!-- End Of The Row Class -->

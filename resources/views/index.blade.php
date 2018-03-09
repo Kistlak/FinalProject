@@ -107,7 +107,7 @@ Amazing Cinema is owned and managed by NTKT Films & Theaters Private Limited. It
                         <h5>{{ $value->fshow }}</h5>
                         <h5>{{ $value->sshow }}</h5>
                         <p>
-                            <a href="#" class="btn btn-primary">Buy Tickets</a>
+                            <a href="{{ route('Seats') }}" class="btn btn-primary">Buy Tickets</a>
                         </p>
                     </div>
                 </div>

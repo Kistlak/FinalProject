@@ -64,3 +64,11 @@ Route::get('/CustomizeWeb', 'CustomizeWebController@index')->name('CustomizeWeb'
 
 // Seats
 Route::get('/Seats', 'SeatsController@index')->name('Seats');
+Route::post('seatsinsert',[
+'uses'=> 'SeatsController@seatsinsert',
+'as' => 'seatsinsert'
+]);
+Route::post('seatprocess',[
+'uses'=> 'SeatsController@seatprocess',
+'as' => 'seatprocess'
+]);
