@@ -1,7 +1,11 @@
 <html>
 
 <head>
-
+    
+<!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
 <style>
 
 .navbar /* Design Of The Nav */
@@ -138,9 +142,18 @@ if(is_dir($dir_path))
         <li><a href="{{ route('AdminPanel') }}" class="BorderRight">Admin Panel</a></li>
 		
         <li><a href="{{ route('index') }}" target="_blank" class="BorderRight">Visit Web Site</a></li>
-		
-        <li><a href="{{ route('logout') }}" class="BorderRight">Logout</a></li>
-
+        
+        @if (Auth::check())
+       <li class="nav-item dropdown">
+         <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown">
+          {{ Auth::user()->username }}
+         </a>
+         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
+           <a class="dropdown-item active" href="{{ route('logout') }}">Logout</a>
+         </div>
+       </li>
+        @endif
+     
 	  </ul>
 	  
     </div><!-- /.navbar-collapse -->

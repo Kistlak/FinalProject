@@ -32,17 +32,8 @@ public function adinsert(Request $request)
         $user->password = $password;
         
         $this->validate($request, [
-            'email' => 'required'
+            'email' => 'required|email|unique:users,email'
         ]);
-        
-        $res = DB::table('users')->where(['email' => $email])->get();
-        
-        if ($res > 0 ) {
-            $request->session()->flash('Msg', 'Email already taken , Use another Email !!');
-            return redirect('AdminPanel');
-        }
-        else
-        {
         
         if(Input::hasFile('file_img')){
             
@@ -88,8 +79,6 @@ public function adinsert(Request $request)
             
             return redirect('AdminPanel');
         }
-  
-        }   
         
     }  
     
@@ -108,7 +97,11 @@ $edd = User::find($id);
     $users = User::find($id);
     $users->username = $request->get('username');
     $users->email = $request->get('email');
-        
+     
+    $this->validate($request, [
+            'email' => "required|email|unique:users,email,$id"
+        ]);
+    
     if(Input::hasFile('file_img')){
             
             $file = Input::file('file_img');
