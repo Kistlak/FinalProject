@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Validator;
 use Illuminate\Support\Facades\Input;
+use DB;
 
 class AdminPanelController extends Controller
 {
@@ -34,21 +35,26 @@ public function adinsert(Request $request)
             'email' => 'required'
         ]);
         
+        $res = DB::table('users')->where(['email' => $email])->get();
+        
+        if ($res > 0 ) {
+            $request->session()->flash('Msg', 'Email already taken , Use another Email !!');
+            return redirect('AdminPanel');
+        }
+        else
+        {
+        
         if(Input::hasFile('file_img')){
             
             $file = Input::file('file_img');
             
             $rules = array(
-                'file_img' => 'required|max:10000|mimes:doc,docx,jpeg,png,jpg'
+                'file_img' => 'required|max:10000|mimes:jpeg,png,jpg'
             );
             
             $validator = Validator::make(Input::all(), $rules);
             
-            if ($validator->fails()) {
-                
-                // redirect our user back with error messages
-                
-                // send back to the page with the input data and errors
+            if  ($validator->fails()) {
                 
                 $request->session()->flash('OnlyImg', 'You Can Only Upload Images !!');
                 return redirect('AdminPanel');
@@ -83,6 +89,8 @@ public function adinsert(Request $request)
             return redirect('AdminPanel');
         }
   
+        }   
+        
     }  
     
     public function edit($id)

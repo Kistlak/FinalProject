@@ -209,7 +209,7 @@
                     items.push($(this).attr('title'));
                 });
 
-                    console.log(items);
+                   //console.log(items);
                    // $(location).attr('href', 'Seats');
 
                    $.ajax({
@@ -222,10 +222,12 @@
                    st: $('select[name=st]').val()},
                    success:function(data)
                    {
+                    console.log(data);
+                    //if(!data){console.log('True')}else{console.log('False')};
                     if(data !== '0')
                     {
                      $('#availability').html('<span class="text-danger">Seats not available</span>');
-                     $('#register').attr("disabled", true);
+                     $('#btnShowNew').attr("disabled", true);
                     }
                     else
                     {
@@ -245,7 +247,7 @@
                     } 
                     });
                      
-                    $('#register').attr("disabled", false);
+                    $('#btnShowNew').attr("disabled", false);
                     }
                    }
                   });
