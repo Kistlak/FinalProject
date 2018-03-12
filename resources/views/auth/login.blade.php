@@ -82,6 +82,16 @@
             </div>
           </div>       
           
+        <div class="form-group">
+        <div class="col-md-6 col-md-offset-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>                    
+        
           <div class='row'>
             <div class='col-xs-12' align="center"><p style="padding:10px 0px 10px 0px">Forgot the Password ? 
             <a href='http://www.soulfy.com/soulfy_admin2/public/admin/forgot'>Click here</a>   </p></div>

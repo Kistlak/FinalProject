@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Input;
 
 class MoviePostersController extends Controller
 {
+    
+    public function __construct()
+{
+    $this->middleware('auth');
+}
+    
     public function index()
     {
       $data = MoviePosters::all();

@@ -1,27 +1,10 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('index');
 });
 
 Auth::routes();
-
-Route::group(['middleware' => 'auth'],function(){
-Route::get('/AdminPanel', 'AdminPanelController@index')->name('AdminPanel');
-Route::get('/MoviePosters', 'MoviePostersController@index')->name('MoviePosters');
-
-});
 
 Route::get('/index', 'indexController@index')->name('index');
 
@@ -37,6 +20,7 @@ Route::get('auth/facebook', 'Auth\SMController@redirectToProviderFB')->name('SML
 Route::get('auth/facebook/callback', 'Auth\SMController@handleProviderCallbackFB');
 
 // AdminPanel
+Route::get('/AdminPanel', 'AdminPanelController@index')->name('AdminPanel');
 Route::post('adinsert',[
 'uses'=> 'AdminPanelController@adinsert',
 'as' => 'adinsert'
@@ -46,6 +30,7 @@ Route::put('/adminedit/{id}', 'AdminPanelController@adminedit');
 Route::get('delete{id}','AdminPanelController@DeleteUser');
 
 // MoviePosters
+Route::get('/MoviePosters', 'MoviePostersController@index')->name('MoviePosters');
 Route::post('posterinsert',[
 'uses'=> 'MoviePostersController@posterinsert',
 'as' => 'posterinsert'
