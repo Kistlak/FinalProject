@@ -13,6 +13,6 @@ class indexController extends Controller
         
       $data = MoviePosters::all();
       //$data = login::orderBy('created_at', 'desc')->get();
-      return view('index', ['data' => $data]);
+      return view('Master.index', compact('data'));
     }
 }

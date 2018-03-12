@@ -11,7 +11,7 @@ class SeatsController extends Controller
     
     public function index()
     {
-       return view('Seats'); 
+       return view('Master.Seats'); 
     }
     
     public function seatsinsert(Request $request)

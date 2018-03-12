@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use Illuminate\Http\Request;
 use App\MoviePosters;
 use Validator;
@@ -14,7 +13,7 @@ class MoviePostersController extends Controller
     {
       $data = MoviePosters::all();
       //$data = login::orderBy('created_at', 'desc')->get();
-      return view('MoviePosters', ['data' => $data]);
+      return view('AdminPanel.MoviePosters', ['data' => $data]);
     }
 
 public function posterinsert(Request $request)
@@ -88,7 +87,7 @@ public function posterinsert(Request $request)
     {
         $edd = MoviePosters::find($id);
         //dd($edd);
-        return view('MoviePostersUpdate', ['edd' => $edd]);
+        return view('AdminPanel.MoviePostersUpdate', ['edd' => $edd]);
 
     }
     

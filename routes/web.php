@@ -41,7 +41,7 @@ Route::post('adinsert',[
 'uses'=> 'AdminPanelController@adinsert',
 'as' => 'adinsert'
 ]);
-Route::get('/edit/{id}', 'AdminPanelController@edit');
+Route::get('/edit/{edd}', 'AdminPanelController@edit');
 Route::put('/adminedit/{id}', 'AdminPanelController@adminedit');
 Route::get('delete{id}','AdminPanelController@DeleteUser');
 

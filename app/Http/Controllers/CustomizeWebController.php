@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use Illuminate\Http\Request;
 use Validator;
 use Illuminate\Support\Facades\Input;
@@ -12,7 +11,7 @@ class CustomizeWebController extends Controller
 {
     public function index()
     {
-       return view('CustomizeWeb'); 
+       return view('AdminPanel.CustomizeWeb'); 
         
       //$data = MoviePosters::all();
       //return view('CustomizeWeb', ['data' => $data]);

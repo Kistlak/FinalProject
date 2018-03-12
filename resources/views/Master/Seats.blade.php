@@ -1,23 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+@extends('Templates.MasterOtherPages')
 
-    <head>
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-    <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-    <!--<link rel="stylesheet" type="text/css" href="css/mystyle.css">-->
-   
-    <title>
-    @include('title')
-    </title>
-    
-    <style>
+<style>
         
 	#holder{	
 	 height:300px;	 
@@ -85,19 +68,9 @@
         margin-right: 400px;   
     }
           
-    </style>				
+    </style>		
 
-@include('BackToTop')
-
-	</head>
-    
-    @include('NavMain')
-    
-<body>
-    
-<div class="container"> <!-- Start Of The Container Class -->
-
-<div class="row text-center"> <!-- Start Of The Row Class -->
+@section('content')		
 
 <div class="col-md-12 col-sm-12 hero-feature"> <!-- Start Of The Col Class -->
     
@@ -261,15 +234,5 @@
     </form>
         
 </div> <!-- End Of The Col Class -->
-    
-</div> <!-- End Of The Row Class -->
-		
-</div> <!-- End Of The Container Class -->
 
-</body>
-    
-<!-- Footer -->
-@include('footer')
-<!-- End Of The Footer -->
-    
-</html>
+@endsection

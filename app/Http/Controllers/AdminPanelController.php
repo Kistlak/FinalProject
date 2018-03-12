@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\User;
 use Validator;
 use Illuminate\Support\Facades\Input;
-use DB;
 
 class AdminPanelController extends Controller
 {
@@ -15,22 +14,11 @@ class AdminPanelController extends Controller
     {
       $data = User::all();
       //$data = login::orderBy('created_at', 'desc')->get();
-      return view('AdminPanel', ['data' => $data]);
+      return view('AdminPanel.AdminPanel', compact('data'));
     }
  
 public function adinsert(Request $request)
     {
-
-        $username = $request->input('username');
-        $email = $request->input('email');
-        $password = bcrypt($request->input('password'));
-        //$passen = bcrypt($password);
-        
-        $user = new User();
-        $user->username = $username;
-        $user->email = $email;
-        $user->password = $password;
-        
         $this->validate($request, [
             'email' => 'required|email|unique:users,email'
         ]);
@@ -49,7 +37,6 @@ public function adinsert(Request $request)
                 
                 $request->session()->flash('OnlyImg', 'You Can Only Upload Images !!');
                 return redirect('AdminPanel');
-                
             }
             
             else if ($validator->passes()) {
@@ -58,22 +45,24 @@ public function adinsert(Request $request)
                 $destinationPath = 'img/Admins/';
                 $filemove = $file->move($destinationPath, $fileimg);
                 
-                $user->fileimg = $fileimg;
-                $user->filemove = $filemove;
-                
-                $user->save();
+                User::create([
+                'username' => request('username'),
+                'email' => request('email'),
+                'password' => request('password'),
+                'fileimg' => $fileimg,
+                'filemove' => $filemove
+                ]);
                 
                 $request->session()->flash('Msg', 'Successfully Inserted !!');
                 
                 return redirect('AdminPanel');
-                
             }
         }
         
         else
         {
             
-            $user->save();
+            User::create(request(['username','email','password']));
             
             $request->session()->flash('Msg', 'Successfully Inserted !!');
             
@@ -82,11 +71,9 @@ public function adinsert(Request $request)
         
     }  
     
-    public function edit($id)
+    public function edit(User $edd)
 {
-$edd = User::find($id);
-//dd($edd);
-      return view('AdminUpdate', ['edd' => $edd]);
+      return view('AdminPanel.AdminUpdate', compact('edd'));
 
 }
     
