@@ -1,4 +1,6 @@
-@extends('Templates.MasterOtherPages')
+@extends('Templates.MasterOtherPages')		
+
+@section('content')
 
 <style>
         
@@ -68,9 +70,7 @@
         margin-right: 400px;   
     }
           
-    </style>		
-
-@section('content')		
+    </style>
 
 <div class="col-md-12 col-sm-12 hero-feature"> <!-- Start Of The Col Class -->
     
@@ -84,6 +84,10 @@
            
     <h4> <span id="success_message" class="text-success"></span> </h4>
     
+    <h4 style="font-family: Times New Roman;font-size:200%;color:blue;"> Book Movie </h4> <br>
+    
+    <input type="hidden" name="Movieid" value=""> 
+    
     <div class="form-group row">
     <label for="example-date-input" class="col-2 col-form-label">Select Date :</label>
     <div class="col-10">
@@ -94,10 +98,8 @@
      <div class="form-group">
     <label for="exampleSelect1">Select Time :</label>
     <select name="st" class="form-control" id="exampleSelect1">
-      <option>10.30 am</option>
-      <option>1.30 pm</option>
-      <option>4.30 pm</option>
-      <option>7.30 pm</option>
+      <option>A</option>
+      <option>B</option>
     </select>
     </div>  
  
@@ -123,7 +125,10 @@
       
       <input type="submit" class="btn btn-primary" id="btnShowNew" value="Continue"> <br><br>
 
-       <span id="availability"></span>
+      @if(session()->has('Msg'))
+      <h4 class="alert alert-success"> {{ session()->get('OnlyImg') }} </h4>
+      @endif 
+
     <br />   
                   
     </center>
@@ -185,33 +190,13 @@
                    //console.log(items);
                    // $(location).attr('href', 'Seats');
 
-                   $.ajax({
-                   url:'{{ route('seatprocess') }}',
-                   type:"POST",
-                   data:{ 
-                   _token: "{{ csrf_token() }}", 
-                   items: JSON.stringify(items), 
-                   date: $('input[name=date]').val(), 
-                   st: $('select[name=st]').val()},
-                   success:function(data)
-                   {
-                    console.log(data);
-                    //if(!data){console.log('True')}else{console.log('False')};
-                    if(data !== '0')
-                    {
-                     $('#availability').html('<span class="text-danger">Seats not available</span>');
-                     $('#btnShowNew').attr("disabled", true);
-                    }
-                    else
-                    {
-                     //$('#availability').html('<span class="text-success">Seats Available</span>');
-                     
-                    $.ajax({ 
+                   $.ajax({ 
                     type: "post", 
                     url: "{{ route('seatsinsert') }}", 
                     data: { 
                     _token: "{{ csrf_token() }}", 
                     items: JSON.stringify(items), 
+                    Movieid: $('input[name=Movieid]').val(),
                     date: $('input[name=date]').val(), 
                     st: $('select[name=st]').val()}, 
                     success: function(data){ 
@@ -219,11 +204,6 @@
                     $('#success_message').fadeIn().html("Text"); 
                     } 
                     });
-                     
-                    $('#btnShowNew').attr("disabled", false);
-                    }
-                   }
-                  });
   
                 }); //btnShowNew
 

@@ -19,7 +19,6 @@ class AdminPanelController extends Controller
     public function index()
     {
       $data = User::all();
-      //$data = login::orderBy('created_at', 'desc')->get();
       return view('AdminPanel.AdminPanel', compact('data'));
     }
  

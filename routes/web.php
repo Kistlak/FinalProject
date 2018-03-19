@@ -49,6 +49,7 @@ Route::get('/CustomizeWeb', 'CustomizeWebController@index')->name('CustomizeWeb'
 
 // Seats
 Route::get('/Seats', 'SeatsController@index')->name('Seats');
+//Route::get('/editSeats/{edd}', 'indexController@editSeats');
 Route::post('seatsinsert',[
 'uses'=> 'SeatsController@seatsinsert',
 'as' => 'seatsinsert'
@@ -57,3 +58,11 @@ Route::post('seatprocess',[
 'uses'=> 'SeatsController@seatprocess',
 'as' => 'seatprocess'
 ]);
+
+// Book
+Route::get('/editBook/{bk}', 'indexController@editBooks');
+Route::post('booktsinsert',[
+'uses'=> 'BookController@booktsinsert',
+'as' => 'booktsinsert'
+]);
+Route::get('/BookNo','BookController@index')->name('BookNo');

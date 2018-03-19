@@ -7,23 +7,11 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="img/WisdomIcon.jpg">
+    <link rel="icon" href="img\Logo\WisdomIcon.jpg">
 
-	<!--JavaScript BootstrapFiles-->
-        <script src="js\bootstrap.js"></script>
-        <script src="js\bootstrap,mini.js"></script>
-        <script src="js\jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-       <!-- Bootstrap CSS -->
-        <link href="css\bootstrap.css" rel="stylesheet">
-        <link href="css\bootstrap.min.css" rel="stylesheet">
-        <link href="css\bootstrap-theme.css" rel="stylesheet">
-        <link href="css\bootstrap-theme.min.css" rel="stylesheet">
-	
-    <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
 <title>
 @include('layouts.title')
@@ -69,10 +57,7 @@
 
 <!-- Footer -->
 @include('layouts.AdminFooter')
-<!-- End Of The Footer -->
-	
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>			
+<!-- End Of The Footer -->			
 			
-	</body>
+</body>
 </html>

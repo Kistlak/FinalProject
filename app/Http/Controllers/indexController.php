@@ -15,4 +15,18 @@ class indexController extends Controller
       //$data = login::orderBy('created_at', 'desc')->get();
       return view('Master.index', compact('data'));
     }
+    
+      public function editSeats(MoviePosters $edd)
+    {
+      return view('Master.Seats', compact('edd'));
+
+    }
+    
+     public function editBooks(MoviePosters $bk)
+    {
+      return view('Master.Book', compact('bk'));
+
+    }
+    
+    
 }

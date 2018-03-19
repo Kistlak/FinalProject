@@ -11,11 +11,24 @@
 	
 }
 
-a.list-group-item
+a.list-group-item 
 {
-	color: black;
+	color: white;
+        background-color: #23282d;
+
 }
 
+.list-group-item.disabled
+{
+	color: white;
+        background-color: #23282d;
+}
+
+.list-group
+{
+    background-color: #23282d;
+    height:1000px;
+}
 
 </style>
 
@@ -25,7 +38,12 @@ a.list-group-item
 
                     <div class="left-cont col-md-3"><!-- Left Container -->
                       <ul class="list-group">
-                        
+
+                          <a href="{{ route('AdminPanel') }}" class="list-group-item">
+                              <img src="{{ Auth::user()->filemove }}" class="img-circle" width="210" height="200" align="middle">
+                          <h4 style="font-family: Times New Roman;font-size:200%;text-align:center;"> {{ Auth::user()->username }} </h4>
+                          </a>
+                          
                           <a href="{{ route('AdminPanel') }}" class="list-group-item">Manage Admins</a>
                           <a href="{{ route('MoviePosters') }}" class="list-group-item">Manage Movies</a>
                             <a href="{{ route('CustomizeWeb') }}" class="list-group-item">Customize Web Site</a>

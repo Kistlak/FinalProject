@@ -8,39 +8,18 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="img/WisdomIcon.jpg">
-
-    <!-- Styles -->
-    <link href="{{ asset('jss/bootstrap.css') }}" rel="stylesheet">
-    <link href="{{ asset('jss/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('jss/bootstrap-theme.css') }}" rel="stylesheet">
-    <link href="{{ asset('jss/bootstrap-theme.min.css') }}" rel="stylesheet">  
+    <link rel="icon" href="img\Logo\WisdomIcon.jpg">
     
-    <!-- Scripts -->
-    <script src="{{ asset('jss/bootstrap.js') }}"></script>
-    <script src="{{ asset('jss/bootstrap,mini.js') }}"></script>
-    <script src="{{ asset('jss/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
-    
-    <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-    <!--<link rel="stylesheet" type="text/css" href="css/mystyle.css">-->
-    
-    <script type="text/javascript" src="js\jquery-3.2.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/about.css">
     
 <title>
 @include('layouts.title')
 </title>
 
 <style>
-
-.about{
-	font-family: Times New Roman;
-	line-height: 180%;
-	font-size:135%;
-	text-align: center;
-	color:#353c47;
-}
 
 .btnhome {
     background-color: #4CAF50;
@@ -61,18 +40,15 @@
 	color:white;
 }
 
-.thumbnail	 
-
-{
-	width:300px;
-	height:600px;
-}
-
 </style>
 
 @include('layouts.BackToTop')
 
 </head>
+
+@if (Auth::check())
+@include('layouts.NavAuth')
+@endif
 
 @include('layouts.NavMain')
 
@@ -92,9 +68,5 @@
 @include('layouts.footer')
 <!-- End Of The Footer -->
 
-<!-- Scripts -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>    
-
-  </body>
+</body>
 </html>
