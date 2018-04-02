@@ -5,28 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\MoviePosters;
 
-class indexController extends Controller
+class indexController extends Controller // MoviesController
 {
     public function index()
     {
-      //return view('index');
-        
-      $data = MoviePosters::all();
-      //$data = login::orderBy('created_at', 'desc')->get();
-      return view('Master.index', compact('data'));
-    }
-    
-      public function editSeats(MoviePosters $edd)
-    {
-      return view('Master.Seats', compact('edd'));
+        // nowShowing : eloquent scope functions
+        $data = MoviePosters::all(); // Movie::nowShowing()->paginate(10);
 
-    }
-    
-     public function editBooks(MoviePosters $bk)
-    {
-      return view('Master.Book', compact('bk'));
+        // - title
+        // - cover photo path
+        // - description
+        // - status (boolean) true = showing / false = closed
 
+        // return view('movies.list', compact('movies'));
+
+        return view('Master.index', compact('data'));
     }
-    
-    
+
+    public function editSeats(MoviePosters $edd)
+    {
+        return view('Master.Seats', compact('edd'));
+    }
+
+    public function editBooks(MoviePosters $bk)
+    {
+        return view('Master.Book', compact('bk'));
+    }
 }

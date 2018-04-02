@@ -2,22 +2,25 @@
 
 @section('content')
 
-<div class="col-md-12 col-sm-12 hero-feature"> <!-- Start Of The Col Class -->
-                
-<p class="about"> <!-- Start Of The P About Class -->
-<br>
-Amazing Cinema is owned and managed by NTKT Films & Theaters Private Limited. It has long been a one of the top end movie entertainment centers in and around Galle city. Amazing Cinema is well equipped with the latest movie technology can accommodate 200 seats. Amazing Cinema currently screen movies in four major languages, namely English and Hindi Movies and the cinema currently screens four movies per day.
+    <div class="col-md-12 col-sm-12 hero-feature"> <!-- Start Of The Col Class -->
 
-</p> <!-- End Of The P About Class --> <br>
+        <p class="about"> <!-- Start Of The P About Class -->
+            <br>
+            Amazing Cinema is owned and managed by NTKT Films & Theaters Private Limited. It has long been a one of the
+            top end movie entertainment centers in and around Galle city. Amazing Cinema is well equipped with the
+            latest movie technology can accommodate 200 seats. Amazing Cinema currently screen movies in four major
+            languages, namely English and Hindi Movies and the cinema currently screens four movies per day.
 
-            </div> <!-- End Of The Col Class -->
-  
-<div id="jq">
+        </p> <!-- End Of The P About Class --> <br>
 
-    <h1>Currently Showing Movies</h1><br>
+    </div> <!-- End Of The Col Class -->
 
-    @foreach($data as $value )
-    <div class="col-md-4 col-sm-6 hero-feature">
+    <div id="jq">
+
+        <h1>Currently Showing Movies</h1><br>
+
+        @foreach($data as $value )
+            <div class="col-md-4 col-sm-6 hero-feature">
                 <div class="thumbnail">
                     <img src="{{ $value->filemove }}" alt="">
                     <div class="caption">
@@ -30,8 +33,8 @@ Amazing Cinema is owned and managed by NTKT Films & Theaters Private Limited. It
                     </div>
                 </div>
             </div>
-@endforeach
-			
-</div> <!-- JQ -->
+        @endforeach
+
+    </div> <!-- JQ -->
 
 @endsection

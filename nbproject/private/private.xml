@@ -4,9 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/wamp64/www/FinalProject/routes/web.php</file>
-            <file>file:/D:/wamp64/www/FinalProject/app/Http/Controllers/BookController.php</file>
-            <file>file:/D:/wamp64/www/FinalProject/resources/views/Master/Book.blade.php</file>
-            <file>file:/D:/wamp64/www/FinalProject/app/Http/Controllers/SeatsController.php</file>
+            <file>file:/D:/wamp64/www/FinalProject/app/Http/Controllers/MoviePostersController.php</file>
         </group>
     </open-files>
 </project-private>
