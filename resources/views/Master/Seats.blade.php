@@ -76,32 +76,6 @@
 
                 {{ csrf_field() }}
 
-                <div class="dt"><br>
-
-                    <h4><span id="success_message" class="text-success"></span></h4>
-
-                    <h4 style="font-family: Times New Roman;font-size:200%;color:blue;"> Book Movie </h4> <br>
-
-                    <input type="hidden" name="Movieid" value="">
-
-                    <div class="form-group row">
-                        <label for="example-date-input" class="col-2 col-form-label">Select Date :</label>
-                        <div class="col-10">
-                            <input class="form-control" type="date" name="date" placeholder="mm-dd-yyyy"
-                                   id="example-date-input">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="exampleSelect1">Select Time :</label>
-                        <select name="st" class="form-control" id="exampleSelect1">
-                            <option>A</option>
-                            <option>B</option>
-                        </select>
-                    </div>
-
-                </div>
-
                 <h2 style="font-size:1.2em;font-family: Times New Roman;"> Choose seats by clicking below seats :</h2>
 
                 <div id="holder">

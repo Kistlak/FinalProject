@@ -42,7 +42,7 @@
 
     </style>
 
-@include('layouts.BackToTop')
+    @include('layouts.BackToTop')
 
 </head>
 

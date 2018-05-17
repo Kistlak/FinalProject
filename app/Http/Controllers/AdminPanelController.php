@@ -40,7 +40,7 @@ class AdminPanelController extends Controller
             if ($validator->fails()) {
 
                 $request->session()->flash('OnlyImg', 'You Can Only Upload Images !!');
-                return redirect('AdminPanel');
+                return redirect('adminPanel');
             } else {
                 if ($validator->passes()) {
 
@@ -58,7 +58,7 @@ class AdminPanelController extends Controller
 
                     $request->session()->flash('Msg', 'Successfully Inserted !!');
 
-                    return redirect('AdminPanel');
+                    return redirect('adminPanel');
                 }
             }
         } else {
@@ -67,7 +67,7 @@ class AdminPanelController extends Controller
 
             $request->session()->flash('Msg', 'Successfully Inserted !!');
 
-            return redirect('AdminPanel');
+            return redirect('adminPanel');
         }
 
     }
@@ -119,7 +119,7 @@ class AdminPanelController extends Controller
 
                     $request->session()->flash('Msg', 'Successfully Updated !!');
 
-                    return redirect('AdminPanel');
+                    return redirect('adminPanel');
 
                 }
             }
@@ -129,7 +129,7 @@ class AdminPanelController extends Controller
 
             $request->session()->flash('Msg', 'Successfully Updated !!');
 
-            return redirect('AdminPanel');
+            return redirect('adminPanel');
         }
 
 
@@ -145,7 +145,7 @@ class AdminPanelController extends Controller
 
         $request->session()->flash('Msg', 'Successfully Deleted !!');
 
-        return redirect('AdminPanel');
+        return redirect('adminPanel');
     }
 
 }

@@ -3,18 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Seats;
+use App\BookSeat;
 use DB;
 use Redirect;
+use App\Mail\MyMail;
 
-class BookController extends Controller
+class BookSeatController extends Controller
 {
-
-//    public function index($showcode){
-//
-//        $seatsReserved = DB::table('seats')->where('st', $showcode)->pluck('item');
-//        return view('Book')->with('seatsReserved',$seatsReserved);
-//    }
 
     public function booktsinsert(Request $request)
     {
@@ -22,15 +17,16 @@ class BookController extends Controller
         $Mid = $request->input('Movieid');
         $date = $request->input('date');
         $st = $request->input('st');
-//        $items = $request->input('items'); 
+        $sendemail = $request->input('email');
+//        $items = $request->input('items');
         $items = array();
         $items = $request->items;
 
-        $query = DB::table('seats')
+        $query = DB::table('book')
             ->where('Movie_id', '=', $Mid)
-            ->where('date', '=', $date)
-            ->where('st', '=', $st)
-            ->where('item', '=', $items)
+            ->where('sdate', '=', $date)
+            ->where('stime', '=', $st)
+            ->where('seatno', '=', $items)
             ->count();
 
 //        dd($query);
@@ -42,17 +38,22 @@ class BookController extends Controller
         } else {
 
             for ($i = 0; $i < count($items); $i++) {
-                $user = new Seats();
+                $user = new BookSeat();
                 $user->Movie_id = $Mid;
-                $user->date = $date;
-                $user->st = $st;
-//            $user->item = $items; 
-                $user->item = $items[$i];
+                $user->sdate = $date;
+                $user->stime = $st;
+                $user->email = $sendemail;
+//            $user->item = $items;
+                $user->seatno = $items[$i];
 
                 $user->save();
+
+              //  \Mail::to($user)->send(new MyMail);
             }
+
             $request->session()->flash('Msg', 'Inserted');
-            return \Redirect::back();
+            //return \Redirect::back();
+            return redirect('paywithpaypal');
         }
 
     }
@@ -60,7 +61,11 @@ class BookController extends Controller
     public function index()
     {
         return view('Master.BookNo');
+    }
 
+    public function bookconfirmation()
+    {
+        return view('Master.BookConfirm');
     }
 
 }

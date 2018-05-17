@@ -19,16 +19,16 @@
 
         <h1>Currently Showing Movies</h1><br>
 
-        @foreach($data as $value )
+        @foreach($movies as $movie)
             <div class="col-md-4 col-sm-6 hero-feature">
                 <div class="thumbnail">
-                    <img src="{{ $value->filemove }}" alt="">
+                    <img src="{{ $movie->filemove }}" alt="">
                     <div class="caption">
-                        <h3>{{ $value->mname }}</h3>
-                        <h5>{{ $value->fshow }}</h5>
-                        <h5>{{ $value->sshow }}</h5>
+                        <h3>{{ $movie->title }}</h3>
+                        <h5>{{ $movie->fshow }}</h5>
+                        <h5>{{ $movie->sshow }}</h5>
                         <p>
-                            <a href="editBook/{{ $value->id }}" class="btn btn-primary">Buy Tickets</a>
+                            <a href="editBook/{{ $movie->id }}" class="btn btn-primary">Buy Tickets</a>
                         </p>
                     </div>
                 </div>

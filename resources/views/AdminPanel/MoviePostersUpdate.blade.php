@@ -22,7 +22,7 @@
 
                 <div class="form-group">
                     <label>Movie Name : *</label>
-                    <input type="text" class="form-control" name="mname" value="{{$edd->mname}}"
+                    <input type="text" class="form-control" name="mname" value="{{$edd->title}}"
                            placeholder="Enter movie Name" required>
                 </div>
 

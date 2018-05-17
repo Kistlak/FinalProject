@@ -129,13 +129,11 @@
 
                 <li><a href="{{ route('index') }}" class="BorderRight">Home</a></li>
 
-                <li><a href="{{ route('login') }}" class="BorderRight">Movies</a></li>
+                <li><a href="{{ route('Price') }}" class="BorderRight">Prices</a></li>
 
-                <li><a href="{{ route('login') }}" class="BorderRight">Prices</a></li>
+                <li><a href="{{ route('SearchMovies') }}" class="BorderRight">Search Movies</a></li>
 
-                <li><a href="{{ route('login') }}" class="BorderRight">Show Times</a></li>
-
-                <li><a href="{{ route('login') }}" class="BorderRight">Contact Us</a></li>
+                <li><a href="{{ route('contactus') }}" class="BorderRight">Contact Us</a></li>
 
                 <form action="" method="post" class="navbar-form navbar-left">
                     <div class="form-group">

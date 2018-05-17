@@ -89,7 +89,7 @@
 
             @foreach($data as $value )
                 <tr>
-                    <td> {{ $value->mname }} </td>
+                    <td> {{ $value->title }} </td>
                     <td> {{ $value->fshow }} </td>
                     <td> {{ $value->sshow }} </td>
                     <td><img src='{{ $value->filemove }}' style='width:100px;height:100px;'></td>

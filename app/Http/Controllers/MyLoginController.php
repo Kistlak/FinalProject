@@ -19,7 +19,7 @@ class MyLoginController extends Controller
         ])) {
             $user = User::where('email', $request->email)->first();
 
-            return redirect('/AdminPanel');
+            return redirect('/adminPanel');
         } else {
             return redirect('/login');
         }

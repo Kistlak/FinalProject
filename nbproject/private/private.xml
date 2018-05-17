@@ -4,7 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/wamp64/www/FinalProject/routes/web.php</file>
-            <file>file:/D:/wamp64/www/FinalProject/app/Http/Controllers/MoviePostersController.php</file>
+            <file>file:/D:/wamp64/www/FinalProject/storage/logs/laravel.log</file>
+            <file>file:/D:/wamp64/www/FinalProject/app/Http/Controllers/SeatsController.php</file>
         </group>
     </open-files>
 </project-private>

@@ -4,22 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\MoviePosters;
+use App\Movie;
+use App\Show;
 
 class indexController extends Controller // MoviesController
 {
     public function index()
     {
-        // nowShowing : eloquent scope functions
-        $data = MoviePosters::all(); // Movie::nowShowing()->paginate(10);
+        $movies = Movie::all(); // Movie::nowShowing()->paginate(10);
 
-        // - title
-        // - cover photo path
-        // - description
-        // - status (boolean) true = showing / false = closed
-
-        // return view('movies.list', compact('movies'));
-
-        return view('Master.index', compact('data'));
+        return view('Master.index', compact('movies'));
     }
 
     public function editSeats(MoviePosters $edd)

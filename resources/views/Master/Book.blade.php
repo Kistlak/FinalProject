@@ -257,16 +257,17 @@
         <h4 class="alert alert-success"> {{ session()->get('Msg') }} </h4>
     @endif
 
+    <div class="col-md-6 col-sm-3 hero-feature"> <!-- Start Of Right The Col Class -->
+
     <form class="form-horizontal" id="form1" method="POST" action="{{ route('booktsinsert') }}"
           enctype="multipart/form-data">
 
         {{ csrf_field() }}
 
-        <div class="dt"><br>
-
             <h4><span id="success_message" class="text-success"></span></h4>
 
-            <h4 style="font-family: Times New Roman;font-size:200%;color:blue;"> Book {{ $bk->mname }} Movie </h4> <br>
+        <br>
+            <h4 style="font-family: Times New Roman;font-size:200%;color:blue;"> Book {{ $bk->title }} Movie </h4> <br>
 
             <input type="hidden" name="Movieid" value="{{ $bk->id }}">
 
@@ -286,8 +287,16 @@
                 </select>
             </div>
 
+        <div class="form-group">
+            <label>Email : *</label>
+            <input type="email" class="form-control" name="email" placeholder="Enter Your Email" required>
         </div>
 
+            <input type="submit" class="btn btn-primary" id="btnShowNew" value="Continue"> <br><br>
+
+    </div>
+
+    <div class="col-md-6 col-sm-3 hero-feature"> <!-- Start Of Right The Col Class -->
         <div class="plane">
             <div class="cockpit">
                 <h1>Please select a seat</h1>
@@ -336,32 +345,32 @@
                 <li class="row row--2">
                     <ol class="seats" type="A">
                         <li class="seat">
-                            <input type="checkbox" id="2A"/>
+                            <input type="checkbox" id="2A" name="items[]" value="2A" id="items[]"/>
                             <label for="2A">2A</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="2B"/>
+                            <input type="checkbox" id="2B" name="items[]" value="2B" id="items[]"/>
                             <label for="2B">2B</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="2C"/>
+                            <input type="checkbox" id="2C" name="items[]" value="2C" id="items[]"/>
                             <label for="2C">2C</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="2D"/>
+                            <input type="checkbox" id="2D" name="items[]" value="2D" id="items[]"/>
                             <label for="2D">2D</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="2E"/>
+                            <input type="checkbox" id="2E" name="items[]" value="2E" id="items[]"/>
                             <label for="2E">2E</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="2F"/>
+                            <input type="checkbox" id="2F" name="items[]" value="2F" id="items[]"/>
                             <label for="2F">2F</label>
                         </li>
 
@@ -371,32 +380,32 @@
                 <li class="row row--3">
                     <ol class="seats" type="A">
                         <li class="seat">
-                            <input type="checkbox" id="3A"/>
+                            <input type="checkbox" id="3A" name="items[]" value="3A" id="items[]"/>
                             <label for="3A">3A</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="3B"/>
+                            <input type="checkbox" id="3B" name="items[]" value="3B" id="items[]"/>
                             <label for="3B">3B</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="3C"/>
+                            <input type="checkbox" id="3C" name="items[]" value="3C" id="items[]"/>
                             <label for="3C">3C</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="3D"/>
+                            <input type="checkbox" id="3D" name="items[]" value="3D" id="items[]"/>
                             <label for="3D">3D</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="3E"/>
+                            <input type="checkbox" id="3E" name="items[]" value="3E" id="items[]"/>
                             <label for="3E">3E</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="3F"/>
+                            <input type="checkbox" id="3F" name="items[]" value="3F" id="items[]"/>
                             <label for="3F">3F</label>
                         </li>
                     </ol>
@@ -405,32 +414,32 @@
                 <li class="row row--4">
                     <ol class="seats" type="A">
                         <li class="seat">
-                            <input type="checkbox" id="4A"/>
+                            <input type="checkbox" id="4A" name="items[]" value="4A" id="items[]"/>
                             <label for="4A">4A</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="4B"/>
+                            <input type="checkbox" id="4B" name="items[]" value="4B" id="items[]"/>
                             <label for="4B">4B</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="4C"/>
+                            <input type="checkbox" id="4C" name="items[]" value="4C" id="items[]"/>
                             <label for="4C">4C</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="4D"/>
+                            <input type="checkbox" id="4D" name="items[]" value="4D" id="items[]"/>
                             <label for="4D">4D</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="4E"/>
+                            <input type="checkbox" id="4E" name="items[]" value="4E" id="items[]"/>
                             <label for="4E">4E</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="4F"/>
+                            <input type="checkbox" id="4F" name="items[]" value="4F" id="items[]"/>
                             <label for="4F">4F</label>
                         </li>
                     </ol>
@@ -439,32 +448,32 @@
                 <li class="row row--5">
                     <ol class="seats" type="A">
                         <li class="seat">
-                            <input type="checkbox" id="5A"/>
+                            <input type="checkbox" id="5A" name="items[]" value="5A" id="items[]"/>
                             <label for="5A">5A</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="5B"/>
+                            <input type="checkbox" id="5B" name="items[]" value="5B" id="items[]"/>
                             <label for="5B">5B</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="5C"/>
+                            <input type="checkbox" id="5C" name="items[]" value="5C" id="items[]"/>
                             <label for="5C">5C</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="5D"/>
+                            <input type="checkbox" id="5D" name="items[]" value="5D" id="items[]"/>
                             <label for="5D">5D</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="5E"/>
+                            <input type="checkbox" id="5E" name="items[]" value="5E" id="items[]"/>
                             <label for="5E">5E</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="5F"/>
+                            <input type="checkbox" id="5F" name="items[]" value="5F" id="items[]"/>
                             <label for="5F">5F</label>
                         </li>
                     </ol>
@@ -473,32 +482,32 @@
                 <li class="row row--6">
                     <ol class="seats" type="A">
                         <li class="seat">
-                            <input type="checkbox" id="6A"/>
+                            <input type="checkbox" id="6A" name="items[]" value="6A" id="items[]"/>
                             <label for="6A">6A</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="6B"/>
+                            <input type="checkbox" id="6B" name="items[]" value="6B" id="items[]"/>
                             <label for="6B">6B</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="6C"/>
+                            <input type="checkbox" id="6C" name="items[]" value="6C" id="items[]"/>
                             <label for="6C">6C</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="6D"/>
+                            <input type="checkbox" id="6D" name="items[]" value="6D" id="items[]"/>
                             <label for="6D">6D</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="6E"/>
+                            <input type="checkbox" id="6E" name="items[]" value="6E" id="items[]"/>
                             <label for="6E">6E</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="6F"/>
+                            <input type="checkbox" id="6F" name="items[]" value="6F" id="items[]"/>
                             <label for="6F">6F</label>
                         </li>
                     </ol>
@@ -507,32 +516,32 @@
                 <li class="row row--7">
                     <ol class="seats" type="A">
                         <li class="seat">
-                            <input type="checkbox" id="7A"/>
+                            <input type="checkbox" id="7A" name="items[]" value="7A" id="items[]"/>
                             <label for="7A">7A</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="7B"/>
+                            <input type="checkbox" id="7B" name="items[]" value="7B" id="items[]"/>
                             <label for="7B">7B</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="7C"/>
+                            <input type="checkbox" id="7C" name="items[]" value="7C" id="items[]"/>
                             <label for="7C">7C</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="7D"/>
+                            <input type="checkbox" id="7D" name="items[]" value="7D" id="items[]"/>
                             <label for="7D">7D</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="7E"/>
+                            <input type="checkbox" id="7E" name="items[]" value="7E" id="items[]"/>
                             <label for="7E">7E</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="7F"/>
+                            <input type="checkbox" id="7F" name="items[]" value="7F" id="items[]"/>
                             <label for="7F">7F</label>
                         </li>
                     </ol>
@@ -541,32 +550,32 @@
                 <li class="row row--8">
                     <ol class="seats" type="A">
                         <li class="seat">
-                            <input type="checkbox" id="8A"/>
+                            <input type="checkbox" id="8A" name="items[]" value="8A" id="items[]"/>
                             <label for="8A">8A</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="8B"/>
+                            <input type="checkbox" id="8B" name="items[]" value="8B" id="items[]"/>
                             <label for="8B">8B</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="8C"/>
+                            <input type="checkbox" id="8C" name="items[]" value="8C" id="items[]"/>
                             <label for="8C">8C</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="8D"/>
+                            <input type="checkbox" id="8D" name="items[]" value="8D" id="items[]"/>
                             <label for="8D">8D</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="8E"/>
+                            <input type="checkbox" id="8E" name="items[]" value="8E" id="items[]"/>
                             <label for="8E">8E</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="8F"/>
+                            <input type="checkbox" id="8F" name="items[]" value="8F" id="items[]"/>
                             <label for="8F">8F</label>
                         </li>
                     </ol>
@@ -575,32 +584,32 @@
                 <li class="row row--9">
                     <ol class="seats" type="A">
                         <li class="seat">
-                            <input type="checkbox" id="9A"/>
+                            <input type="checkbox" id="9A" name="items[]" value="9A" id="items[]"/>
                             <label for="9A">9A</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="9B"/>
+                            <input type="checkbox" id="9B" name="items[]" value="9B" id="items[]"/>
                             <label for="9B">9B</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="9C"/>
+                            <input type="checkbox" id="9C" name="items[]" value="9B" id="items[]"/>
                             <label for="9C">9C</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="9D"/>
+                            <input type="checkbox" id="9D" name="items[]" value="9C" id="items[]"/>
                             <label for="9D">9D</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="9E"/>
+                            <input type="checkbox" id="9E" name="items[]" value="9E" id="items[]"/>
                             <label for="9E">9E</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="9F"/>
+                            <input type="checkbox" id="9F" name="items[]" value="9F" id="items[]"/>
                             <label for="9F">9F</label>
                         </li>
                     </ol>
@@ -609,32 +618,32 @@
                 <li class="row row--10">
                     <ol class="seats" type="A">
                         <li class="seat">
-                            <input type="checkbox" id="10A"/>
+                            <input type="checkbox" id="10A" name="items[]" value="10A" id="items[]"/>
                             <label for="10A">10A</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="10B"/>
+                            <input type="checkbox" id="10B" name="items[]" value="10B" id="items[]"/>
                             <label for="10B">10B</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="10C"/>
+                            <input type="checkbox" id="10C" name="items[]" value="10C" id="items[]"/>
                             <label for="10C">10C</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="10D"/>
+                            <input type="checkbox" id="10D" name="items[]" value="10D" id="items[]"/>
                             <label for="10D">10D</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="10E"/>
+                            <input type="checkbox" id="10E" name="items[]" value="10E" id="items[]"/>
                             <label for="10E">10E</label>
                         </li>
 
                         <li class="seat">
-                            <input type="checkbox" id="10F"/>
+                            <input type="checkbox" id="10F" name="items[]" value="10F" id="items[]"/>
                             <label for="10F">10F</label>
                         </li>
                     </ol>
@@ -645,21 +654,14 @@
             </div>
         </div>
 
-        <input type="submit" class="btn btn-primary" id="btnShowNew" value="Continue"> <br><br>
+    </div>
 
-        <input type="button" class="btn btn-primary" id="btnAdd" value="Show"> <br><br>
-
-        <label for="male" id="jq">Male : </label>
 
     </form>
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#btnAdd').on('click', function () {
-                var arr = array();
-                var arr = #items;
-
-                $('#jq').append(arr.join("+ "));
+            $.getScript("js/price.js", function () {
             });
         });
     </script>

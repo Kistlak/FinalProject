@@ -30,7 +30,7 @@ class MoviePostersController extends Controller
         $sshow = $request->input('sshow');
 
         $user = new MoviePosters();
-        $user->mname = $mname;
+        $user->title = $mname;
         $user->fshow = $fshow;
         $user->sshow = $sshow;
 
