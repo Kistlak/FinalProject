@@ -99,7 +99,7 @@ class MoviePostersController extends Controller
         // Add Validation
 
         $users = MoviePosters::find($id);
-        $users->mname = $request->get('mname');
+        $users->title = $request->get('mname');
         $users->fshow = $request->get('fshow');
         $users->sshow = $request->get('sshow');
 
