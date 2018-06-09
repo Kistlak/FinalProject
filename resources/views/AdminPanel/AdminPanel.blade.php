@@ -3,7 +3,8 @@
 @section('content')
 
     <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
 
     <div class="col-md-8 col-sm-4 hero-feature"> <!-- Start Of Right The Col Class -->
         <br>
@@ -20,7 +21,8 @@
             <h4 class="alert alert-success"> {{ session()->get('OnlyImg') }} </h4>
         @endif
 
-        <form class="form-horizontal" method="POST" action="{{ route('adinsert') }}" enctype="multipart/form-data" id="signupForm">
+        <form class="form-horizontal" method="POST" action="{{ route('adinsert') }}" enctype="multipart/form-data"
+              id="signupForm">
 
             {{ csrf_field() }}
 
@@ -65,6 +67,7 @@
                 <td> Username</td>
                 <td> Email</td>
                 <td> Images</td>
+                <td> Action</td>
             </tr>
 
             @foreach($data as $value )
@@ -72,10 +75,31 @@
                     <td> {{ $value->username }} </td>
                     <td> {{ $value->email }} </td>
                     <td><img src='{{ $value->filemove }}' style='width:100px;height:100px;'></td>
+
+                    @if($value->action =="NULL")
+                        <td><a href="approvededit/{{ $value->id }}"><input type="submit" name="pending" value="Pending"
+                                                                           class="btn btn-warning"></a></td>
+                    @elseif($value->action ==1)
+                        <td><a href="rejectededit/{{ $value->id }}"><input type="submit" name="approved"
+                                                                           value="Approved"
+                                                                           class="btn btn-success"></a></td>
+                    @else
+                        <td><a href="approvededit/{{ $value->id }}"><input type="submit" name="rejected"
+                                                                           value="Rejected"
+                                                                           class="btn btn-danger"></a></td>
+                    @endif
+
                     <td><a href="edit/{{ $value->id }}"><input type="submit" name="update" value="Update"
                                                                class="btn-primary"></a></td>
                     <td><a href="delete{{ $value->id }}"><input type="submit" name="delete" value="Delete"
                                                                 class="btn-danger"></a></td>
+
+                    @if($value->action =="NULL")
+                        <td><a href="approvededit/{{ $value->id }}"><input type="submit" name="approved" value="Approve"
+                                                                           class="btn btn-success"></a> <br><br>
+                        <a href="rejectededit/{{ $value->id }}"><input type="submit" name="rejected" value="Reject"
+                                                                           class="btn btn-danger"></a></td>
+                    @endif
                 </tr>
             @endforeach
         </table>
@@ -83,11 +107,10 @@
     </div> <!-- End Of Right The Col Class -->
 
     <script type="text/javascript">
-        $.validator.setDefaults( {
-        } );
+        $.validator.setDefaults({});
 
-        $( document ).ready( function () {
-            $( "#signupForm" ).validate( {
+        $(document).ready(function () {
+            $("#signupForm").validate({
                 rules: {
                     username: "required",
                     email: "required",
@@ -130,24 +153,24 @@
 
                 },
                 errorElement: "em",
-                errorPlacement: function ( error, element ) {
+                errorPlacement: function (error, element) {
                     // Add the `help-block` class to the error element
-                    error.addClass( "help-block" );
+                    error.addClass("help-block");
 
-                    if ( element.prop( "type" ) === "checkbox" ) {
-                        error.insertAfter( element.parent( "label" ) );
+                    if (element.prop("type") === "checkbox") {
+                        error.insertAfter(element.parent("label"));
                     } else {
-                        error.insertAfter( element );
+                        error.insertAfter(element);
                     }
                 },
-                highlight: function ( element, errorClass, validClass ) {
-                    $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+                highlight: function (element, errorClass, validClass) {
+                    $(element).parents(".col-sm-5").addClass("has-error").removeClass("has-success");
                 },
                 unhighlight: function (element, errorClass, validClass) {
-                    $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+                    $(element).parents(".col-sm-5").addClass("has-success").removeClass("has-error");
                 }
-            } );
-        } );
+            });
+        });
     </script>
 
 @endsection

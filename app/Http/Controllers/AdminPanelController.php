@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Validator;
 use Illuminate\Support\Facades\Input;
+use DB;
 
 class AdminPanelController extends Controller
 {
@@ -146,6 +147,34 @@ class AdminPanelController extends Controller
         $request->session()->flash('Msg', 'Successfully Deleted !!');
 
         return redirect('adminPanel');
+    }
+
+    public function approvededit(Request $request, $id)
+    {
+        // Add Validation
+
+        DB::table('users')
+            ->where('id', $id)
+            ->update(['action' => 1]);
+
+            $request->session()->flash('Msg', 'Successfully Approved !!');
+
+            return redirect('adminPanel');
+
+    }
+
+    public function rejectededit(Request $request, $id)
+    {
+        // Add Validation
+
+        DB::table('users')
+            ->where('id', $id)
+            ->update(['action' => 2]);
+
+        $request->session()->flash('Msg', 'Rejected !!');
+
+        return redirect('adminPanel');
+
     }
 
 }

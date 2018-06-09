@@ -45,6 +45,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label>Uploaded Picture : *</label>
+                    <td><img src='{{ $edd->filemove }}' style='width:100px;height:100px;'></td>
+                </div>
+
+                <div class="form-group">
                     <label>Upload Profile Picture :</label>
                     <input type="file" class="form-control-file" name="file_img" aria-describedby="fileHelp">
                     <small id="fileHelp" class="form-text text-muted">If U Want , U Can Skip Upload A Profile Picture

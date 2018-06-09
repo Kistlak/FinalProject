@@ -28,6 +28,8 @@ Route::post('adinsert', [
 Route::get('/edit/{edd}', 'AdminPanelController@edit');
 Route::put('/adminedit/{id}', 'AdminPanelController@adminedit');
 Route::get('delete{id}', 'AdminPanelController@DeleteUser');
+Route::get('/approvededit/{id}', 'AdminPanelController@approvededit');
+Route::get('/rejectededit/{id}', 'AdminPanelController@rejectededit');
 
 // MoviePoster
 Route::get('/MoviePosters', 'MoviePostersController@index')->name('MoviePosters');

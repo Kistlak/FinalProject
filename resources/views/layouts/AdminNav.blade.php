@@ -24,6 +24,8 @@
     .list-group {
         background-color: #23282d;
         height: 1000px;
+        margin-bottom: 0px;
+        margin-left: -1px;
     }
 
 </style>
