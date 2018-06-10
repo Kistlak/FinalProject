@@ -259,17 +259,19 @@
 
     <div class="col-md-6 col-sm-3 hero-feature"> <!-- Start Of Right The Col Class -->
 
-    <form class="form-horizontal" id="form1" method="POST" action="{{ route('booktsinsert') }}"
-          enctype="multipart/form-data">
+        <form class="form-horizontal" id="form1" method="POST" action="{{ route('booktsinsert') }}"
+              enctype="multipart/form-data">
 
-        {{ csrf_field() }}
+            {{ csrf_field() }}
 
             <h4><span id="success_message" class="text-success"></span></h4>
 
-        <br>
+            <br>
             <h4 style="font-family: Times New Roman;font-size:200%;color:blue;"> Book {{ $bk->title }} Movie </h4> <br>
 
             <input type="hidden" name="Movieid" value="{{ $bk->id }}">
+
+            <input type="hidden" name="Moviename" value="{{ $bk->title }}">
 
             <div class="form-group row">
                 <label for="example-date-input" class="col-2 col-form-label">Select Date :</label>
@@ -287,10 +289,10 @@
                 </select>
             </div>
 
-        <div class="form-group">
-            <label>Email : *</label>
-            <input type="email" class="form-control" name="email" placeholder="Enter Your Email" required>
-        </div>
+            <div class="form-group">
+                <label>Email : *</label>
+                <input type="email" class="form-control" name="email" placeholder="Enter Your Email" required>
+            </div>
 
             <input type="submit" class="btn btn-primary" id="btnShowNew" value="Continue"> <br><br>
 

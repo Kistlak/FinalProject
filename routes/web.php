@@ -69,6 +69,7 @@ Route::post('booktsinsert', [
 ]);
 Route::get('/BookNo', 'BookSeatController@index')->name('BookNo');
 Route::get('/BookConfirm', 'BookSeatController@bookconfirmation')->name('BookConfirm');
+//Route::get('/ticinfo', 'BookSeatController@ticinfo')->name('ticinfo');
 
 // Price
 Route::get('/price', 'PriceController@index')->name('Price');
@@ -111,3 +112,7 @@ Route::post('cuinsert', [
     'uses' => 'ContactUsController@cuinsert',
     'as' => 'cuinsert'
 ]);
+
+Route::get('sendbasicemail','MailController@basic_email');
+Route::get('sendhtmlemail','MailController@html_email');
+Route::get('sendattachmentemail','MailController@attachment_email');

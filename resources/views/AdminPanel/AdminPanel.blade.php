@@ -68,6 +68,7 @@
                 <td> Email</td>
                 <td> Images</td>
                 <td> Action</td>
+                <td> Status</td>
             </tr>
 
             @foreach($data as $value )
@@ -97,7 +98,7 @@
                     @if($value->action =="NULL")
                         <td><a href="approvededit/{{ $value->id }}"><input type="submit" name="approved" value="Approve"
                                                                            class="btn btn-success"></a> <br><br>
-                        <a href="rejectededit/{{ $value->id }}"><input type="submit" name="rejected" value="Reject"
+                            <a href="rejectededit/{{ $value->id }}"><input type="submit" name="rejected" value="Reject"
                                                                            class="btn btn-danger"></a></td>
                     @endif
                 </tr>

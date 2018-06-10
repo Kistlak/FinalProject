@@ -6,58 +6,71 @@
 
         <p class="about"> <!-- Start Of The P About Class -->
 
-        <h1>It's Time To Pay !!<br></h1>
+        <h1 style="color: red;">It's Time To Pay !!<br></h1>
+
+        {{--{{ $data['fulname'] }}--}}
+
+        {{--{{$Mname}}--}}
+
+        <h4> You Have Booked Ticket For {{ $data['Mname'] }} Movie. </h4>
+
+        <h4> Your Movie Date - {{ $data['date'] }} </h4>
+
+        <h4> Your Movie Show Time - {{ $data['st'] }} </h4>
+
+        <h4> We have sent Ticket Confirmation Email to your {{ $data['sendemail'] }} , check it out !! </h4>
 
         </p> <!-- End Of The P About Class --> <br>
 
-            <div class="panel panel-default">
-                @if ($message = Session::get('success'))
-                    <div class="custom-alerts alert alert-success fade in">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                        {!! $message !!}
-                    </div>
+        <div class="panel panel-default">
+            @if ($message = Session::get('success'))
+                <div class="custom-alerts alert alert-success fade in">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                    {!! $message !!}
+                </div>
 
-                    <?php Session::forget('success');?>
-                @endif
-                @if ($message = Session::get('error'))
-                    <div class="custom-alerts alert alert-danger fade in">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                        {!! $message !!}
-                    </div>
+                <?php Session::forget('success');?>
+            @endif
+            @if ($message = Session::get('error'))
+                <div class="custom-alerts alert alert-danger fade in">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                    {!! $message !!}
+                </div>
 
-                    <?php Session::forget('error');?>
-                @endif
-                <div class="panel-heading">Pay With Paypal</div>
+                <?php Session::forget('error');?>
+            @endif
+            <div class="panel-heading">Pay With Paypal</div>
 
-                <div class="panel-body">
+            <div class="panel-body">
 
-                    <form class="form-horizontal" method="POST" id="payment-form" role="form" action="{!! URL::route('addmoney.paypal') !!}" >
+                <form class="form-horizontal" method="POST" id="payment-form" role="form"
+                      action="{!! URL::route('addmoney.paypal') !!}">
 
-                        {{ csrf_field() }}
+                    {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
-                            <label for="amount" class="col-md-4 control-label">Amount</label>
-                            <div class="col-md-6">
-                                <input id="amount" type="text" class="form-control" name="amount" value="10" autofocus>
-                                @if ($errors->has('amount'))
-                                    <span class="help-block">
+                    <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
+                        <label for="amount" class="col-md-4 control-label">Amount</label>
+                        <div class="col-md-6">
+                            <input id="amount" type="text" class="form-control" name="amount" value="10" autofocus>
+                            @if ($errors->has('amount'))
+                                <span class="help-block">
                                         <strong>{{ $errors->first('amount') }}</strong>
                                     </span>
-                                @endif
-                            </div>
+                            @endif
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Pay With Paypal
-                                </button>
-                            </div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-4">
+                            <button type="submit" class="btn btn-primary">
+                                Pay With Paypal
+                            </button>
                         </div>
+                    </div>
 
-                    </form>
-                </div>
+                </form>
             </div>
+        </div>
 
     </div> <!-- End Of The Col Class -->
 

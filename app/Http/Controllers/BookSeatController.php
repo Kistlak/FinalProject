@@ -7,6 +7,7 @@ use App\BookSeat;
 use DB;
 use Redirect;
 use App\Mail\MyMail;
+use Mail;
 
 class BookSeatController extends Controller
 {
@@ -15,6 +16,7 @@ class BookSeatController extends Controller
     {
 
         $Mid = $request->input('Movieid');
+        $Mname = $request->input('Moviename');
         $date = $request->input('date');
         $st = $request->input('st');
         $sendemail = $request->input('email');
@@ -48,12 +50,26 @@ class BookSeatController extends Controller
 
                 $user->save();
 
-              //  \Mail::to($user)->send(new MyMail);
             }
 
             $request->session()->flash('Msg', 'Inserted');
             //return \Redirect::back();
-            return redirect('paywithpaypal');
+
+            $data = [];
+            $data['Mname'] = $Mname;
+            $data['date'] = $date;
+            $data['st'] = $st;
+            $data['sendemail'] = $sendemail;
+
+            Mail::send(['text' => 'mail'], $data, function ($message) use ($data) {
+                $message->to($data["sendemail"], 'TicketBooker')->subject
+                ('Amazing Cinema Ticket');
+                $message->from('kistlakall@gmail.com', 'Amazing Cinema');
+            });
+            //echo "Basic Email Sent. Check your inbox.";
+
+            return view('addmoney.paywithpaypal', ['data' => $data]);
+
         }
 
     }
@@ -66,6 +82,34 @@ class BookSeatController extends Controller
     public function bookconfirmation()
     {
         return view('Master.BookConfirm');
+    }
+
+    public function ticinfo(Request $request)
+    {
+
+        $Mid = $request->input('Movieid');
+        $date = $request->input('date');
+        $st = $request->input('st');
+        $sendemail = $request->input('email');
+//        $items = $request->input('items');
+        //$items = array();
+        // $items = $request->items;
+
+        // return view('paywithpaypal', compact('Mid','date', 'st', 'sendemail', 'items'));
+
+        // $first = 'Kist';
+        // $last = 'raja';
+
+        // $fulname = $first . " " . $last;
+        // $email = 'kist@gmail.com';
+
+        $data = [];
+        $data['Mid'] = $Mid;
+        $data['date'] = $date;
+        $data['st'] = $st;
+        $data['sendemail'] = $sendemail;
+        return view('addmoney.paywithpaypal')->withData($data);
+
     }
 
 }
