@@ -61,7 +61,7 @@ class BookSeatController extends Controller
             $data['st'] = $st;
             $data['sendemail'] = $sendemail;
 
-            Mail::send(['text' => 'mail'], $data, function ($message) use ($data) {
+            Mail::send(['html' => 'mail'], $data, function ($message) use ($data) {
                 $message->to($data["sendemail"], 'TicketBooker')->subject
                 ('Amazing Cinema Ticket');
                 $message->from('kistlakall@gmail.com', 'Amazing Cinema');
